@@ -3,6 +3,9 @@ name: hello
 on:
   push:
     branches: [main]
+    paths:
+      - '**.html'
+      - '**.yml'
 
 jobs:
   greet:
