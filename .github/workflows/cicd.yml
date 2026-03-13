@@ -4,9 +4,19 @@ name: CICD
 # Manual click (deliver) workflow whenever user needs
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: This is the environmnet value where this workflow runs.
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod 
+          - stagging
 
-# every job needs seperate runner, its called parallelism
 jobs:
+# every job needs seperate runner, its called parallelism
   code:
     runs-on: ubuntu-latest
     steps:
@@ -26,8 +36,10 @@ jobs:
     steps:
       - name: Test the container
         run: echo "Testing the container .. "
-    
+
+  # Here we are making input specific job 
   deploy:
+    if: inputs.environment == 'dev'
     needs: [build,test]
     runs-on: ubuntu-latest
     steps:
