@@ -1,4 +1,4 @@
-name: Workflow for Portfolio deployment
+name: Portfolio 
 
 on:
     # push:
@@ -42,3 +42,4 @@ jobs:
             - name: Deploy to Github pages
               id: deployment
               uses: actions/deploy-pages@v4
+
