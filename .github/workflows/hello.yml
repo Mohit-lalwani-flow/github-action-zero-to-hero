@@ -1,11 +1,13 @@
 name: hello
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '**.html'
-      - '**.yml'
+  workflow_dispatch: 
+  # We are only pushing when in these file path , files got changed
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - '**.html'
+  #     - '**.yml'
 
 jobs:
   greet:
