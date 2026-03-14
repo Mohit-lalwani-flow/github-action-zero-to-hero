@@ -1,7 +1,8 @@
 name: Docker Build & Push
 
 on:
-    workflow_dispatch: 
+    push:
+        branches: [main] 
 
 jobs:
     build-and-push:
@@ -15,7 +16,7 @@ jobs:
               uses: docker/login-action@v3
               with: 
                 username: ${{ vars.DOCKERHUB_USER }}
-                username: ${{ secrets.DOCKERHUB_TOKEN }}
+                password: ${{ secrets.DOCKERHUB_TOKEN }}
 
             - name: Build & Push to Docker Hub
               uses: docker/build-push-action@v5
