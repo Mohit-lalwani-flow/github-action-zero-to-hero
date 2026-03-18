@@ -6,3 +6,4 @@ My determination level is highest .
 I am prosperous soul. 
 I am focused 
 and My concentration level is highest.
+I am blessed
